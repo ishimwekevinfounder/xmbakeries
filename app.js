@@ -29,3 +29,12 @@ app.post("/insert", (req, res) => {
 app.listen(5000, () => {
     console.log("Server is running on port 5000");
 });
+
+// delete endpoint
+// remove/10
+app.delete("/remove/:id", (req, res) => {
+    const sql = "DELETE FROM products WHERE id = ?";
+    db.query(sql, req.params.id, (err, result) => {
+        res.json(result);
+    })
+})
